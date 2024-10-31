@@ -65,9 +65,7 @@ const connection = new events.Connection(stack, 'Connection', {
 
 const httpInvokeTask = new tasks.HttpInvoke(stack, 'Invoke HTTP Endpoint', {
   apiRoot: api.urlForPath('/'),
-  // apiEndpoint: sfn.TaskInput.fromText('/test'),
-  // apiEndpoint: sfn.TaskInput.fromJsonPathAt('$.input.endpointPath'),
-  apiEndpoint: sfn.TaskInput.fromText('/test-json-path'),
+  apiEndpoint: sfn.TaskInput.fromJsonPathAt('$.input.endpointPath'),
   connection,
   method: sfn.TaskInput.fromText('GET'),
 });
